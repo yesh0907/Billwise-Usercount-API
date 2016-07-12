@@ -1,3 +1,5 @@
+'use strict';
+
 var express = require("express");
 var fs = require("fs");
 var request = require("request");
@@ -48,15 +50,8 @@ app.get('/', (req, res) => {
 	});
 });
 
-function curl() {
-	request("http://localhost:8080", (error, html, response) => {
-	});
-}
+app.listen('8080', '10.132.4.187');
 
-curl();
-
-app.listen('8080');
-
-console.log("Listening on http://localhost:8080/");
+console.log("Server running on http://10.132.4.187:8080/");
 
 exports = module.exports = app;
