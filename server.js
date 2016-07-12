@@ -6,7 +6,7 @@ var cheerio = require("cheerio");
 
 var app = express();
 
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
 	// Url to scrape
 	const url = "https://billwise.co/press";
 
