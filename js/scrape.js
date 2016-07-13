@@ -21,7 +21,7 @@ const scrape = (req, res, type) => {
 				var json = { users: "" };
 
 				let text = $('.well').text();				// Gets the text that needs to be parsed
-				let keywords = ['for', 'Singaporeans']		// The keywords that are helpful
+				let keywords = ['for', 'users']		// The keywords that are helpful
 
 				var positions = [];							// Positions of the keywords.
 
