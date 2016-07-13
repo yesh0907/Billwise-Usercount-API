@@ -6,7 +6,7 @@ var cheerio = require("cheerio");
 
 var app = express();
 
-app.get('*', (req, res) => {
+var scrape = (req, res) => {
 	// Url to scrape
 	const url = "https://billwise.co/press";
 
@@ -47,9 +47,14 @@ app.get('*', (req, res) => {
 			console.error(error);
 		}
 	});
+}
+
+app.get('*', (req, res) => {
+	scrape(req, res);
 });
 
-app.listen('8777', '10.132.4.187');
+// app.listen('8777', '10.132.4.187');
+app.listen('8080');
 
 console.log("Server running on http://10.132.4.187:8777/");
 
