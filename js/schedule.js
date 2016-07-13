@@ -10,8 +10,8 @@ const globals = require('./globals.js');
 // Get Device Tokens
 var deviceTokens = getDeviceIDs();
 
-// Schedule to scrape site every 30 minutes, if change send push notification
-var job = schedule.scheduleJob('*/30 * * * *', () => {
+// Schedule to scrape site every 5 minutes, if change send push notification
+var job = schedule.scheduleJob('*/5 * * * *', () => {
 	scrape();
 	if (global.NEW_USERS !== 0) {
 		const newUsers = global.NEW_USERS;
