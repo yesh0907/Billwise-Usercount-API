@@ -39,7 +39,6 @@ const scrape = (req, res, type) => {
 
 				// Check to see how many new users joined.
 				global.NEW_USERS = amountOfUsers - global.PREVIOUS_VALUE; 	// REMOVE + 1 LATER JUST FOR TESTING...
-				console.log("USERS:", global.NEW_USERS);
 				// Store the current value as the previous for the next scrape
 				global.PREVIOUS_VALUE = amountOfUsers.trim();
 
