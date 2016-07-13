@@ -2,6 +2,7 @@
 
 const request = require("request");
 const cheerio = require("cheerio");
+
 const globals = require('./globals.js');
 
 const scrape = (req, res, type) => {
@@ -59,7 +60,7 @@ const scrape = (req, res, type) => {
 				const $ = cheerio.load(html);
 
 				let text = $('.well').text();				// Gets the text that needs to be parsed
-				let keywords = ['for', 'Singaporeans']		// The keywords that are helpful
+				let keywords = ['for', 'users']		// The keywords that are helpful
 
 				var positions = [];							// Positions of the keywords.
 
@@ -76,10 +77,13 @@ const scrape = (req, res, type) => {
 				const amountOfUsers = text.slice(positions[0], positions[1]);	//Store the amount of users
 
 				// Check to see how many new users joined.
-				global.NEW_USERS = amountOfUsers - global.PREVIOUS_VALUE; 	// Check Differnce
+				let NEW_USERS = amountOfUsers - globals.PREVIOUS_VALUE; 		// Check Differnce
 
 				// Store the current value as the previous for the next scrape
-				global.PREVIOUS_VALUE = amountOfUsers.trim();
+				let PREVIOUS_VALUE = Number(amountOfUsers.trim());
+
+				// Store the values
+				globals.updateValues(NEW_USERS, PREVIOUS_VALUE);
 			}
 			else {
 				console.error(error);

@@ -13,8 +13,8 @@ var deviceTokens = getDeviceIDs();
 // Schedule to scrape site every 5 minutes, if change send push notification
 var job = schedule.scheduleJob('5 * * * * *', () => {
 	scrape();
-	if (global.NEW_USERS !== 0) {
-		const newUsers = global.NEW_USERS;
+	if (globals.NEW_USERS !== 0) {
+		const newUsers = globals.NEW_USERS;
 		for (let i in deviceTokens) {
 			let text = `\ud83d\ude0e Billwise gained ${newUsers} users! \ud83d\ude1b`;
 			let devToken = deviceTokens[i];
