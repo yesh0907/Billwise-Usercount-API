@@ -18,6 +18,7 @@ var job = schedule.scheduleJob('20 * * * * *', () => {
 		for (let i in deviceTokens) {
 			let text = `\ud83d\ude0e Billwise gained ${newUsers} new users! \ud83d\ude1b`;
 			let devToken = deviceTokens[i];
+			console.log(`${new Date()} - Pushing Notification: Billwise gained ${newUsers} new users!`);
 			makeNotification(text, devToken);
 		}
 	}
