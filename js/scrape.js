@@ -37,11 +37,6 @@ const scrape = (req, res, type) => {
 
 				const amountOfUsers = text.slice(positions[0], positions[1]);	//Store the amount of users
 
-				// Check to see how many new users joined.
-				global.NEW_USERS = amountOfUsers - global.PREVIOUS_VALUE; 	// REMOVE + 1 LATER JUST FOR TESTING...
-				// Store the current value as the previous for the next scrape
-				global.PREVIOUS_VALUE = amountOfUsers.trim();
-
 				json.users = amountOfUsers.trim();	// Strip of any whitespace at the beginning or the end and store.
 													// Also store it in the json object.
 				json = JSON.stringify(json);
@@ -81,7 +76,7 @@ const scrape = (req, res, type) => {
 				const amountOfUsers = text.slice(positions[0], positions[1]);	//Store the amount of users
 
 				// Check to see how many new users joined.
-				global.NEW_USERS = amountOfUsers - global.PREVIOUS_VALUE; 	// REMOVE + 1 LATER JUST FOR TESTING...
+				global.NEW_USERS = amountOfUsers - global.PREVIOUS_VALUE + 1 ; 	// Check Differnce +1 for testing...
 
 				// Store the current value as the previous for the next scrape
 				global.PREVIOUS_VALUE = amountOfUsers.trim();
