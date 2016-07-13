@@ -10,11 +10,6 @@ const globals = require('./globals.js');
 // Get Device Tokens
 var deviceTokens = getDeviceIDs();
 
-const newUsers = 100;
-let text = `\ud83d\ude0e Billwise gained ${newUsers} users! \ud83d\ude1b`;
-let devToken = "ca0b0fb0d067daa5bb61aa380431caa2c47b8995a4c4094d2fb22e8f3f803438";
-makeNotification(text, devToken);
-
 // Schedule to scrape site every 5 minutes, if change send push notification
 var job = schedule.scheduleJob('*/5 * * * *', () => {
 	scrape();
