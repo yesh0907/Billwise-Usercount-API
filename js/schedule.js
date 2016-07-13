@@ -1,3 +1,5 @@
+'use strict';
+
 var schedule = require('node-schedule');
 
 const scrape = require('./scrape.js');

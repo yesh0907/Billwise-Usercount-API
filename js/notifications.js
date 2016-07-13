@@ -1,3 +1,5 @@
+'use strict';
+
 var apn = require('apn');
 
 // Push Notifications
