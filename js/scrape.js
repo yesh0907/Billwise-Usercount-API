@@ -4,7 +4,7 @@ const request = require("request");
 const cheerio = require("cheerio");
 const globals = require('./globals.js');
 
-const scrape = (req, res, type=null) => {
+const scrape = (req, res, type) => {
 	if (type === "RETURN_JSON") {
 		// Url to scrape
 		const url = "https://billwise.co/press";
