@@ -74,10 +74,11 @@ const scrape = (req, res, type) => {
 					}
 				}
 
-				const amountOfUsers = text.slice(positions[0], positions[1]);	//Store the amount of users
+				let amountOfUsers = text.slice(positions[0], positions[1]);	//Store the amount of users
+				amountOfUsers = amountOfUsers.replace(/\,/g, '');		//If the amountOfUsers has a , in it; then strip it out.
 
 				// Check to see how many new users joined.
-				global.NEW_USERS = amountOfUsers - global.PREVIOUS_VALUE; 	// Check Differnce
+				global.NEW_USERS = parseInt(amountOfUsers) - global.PREVIOUS_VALUE; 	// Check Differnce
 
 				// Store the current value as the previous for the next scrape
 				global.PREVIOUS_VALUE = amountOfUsers.trim();
